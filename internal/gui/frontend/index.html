@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V.W.R.D</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/wails/ipc.js"></script>
+  <script src="/wails/runtime.js"></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="app-header"><div class="brand"><img class="brand-mark" src="/logo.svg" alt=""><strong>V.W.R.D</strong></div></header>
+    <main class="workspace">
+      <div class="title-row"><h1>사이트 수집</h1><span id="status-pill" class="status-pill">대기 중</span></div>
+      <div class="workspace-grid">
+        <section class="card form-card" aria-label="수집 설정">
+          <label for="site-url">사이트 주소</label>
+          <input id="site-url" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com" spellcheck="false">
+          <label for="output-dir">저장 폴더</label>
+          <div class="folder-row"><input id="output-dir" type="text" spellcheck="false"><button id="choose-dir" class="button button-light" type="button">선택</button></div>
+          <div class="actions"><button id="start" class="button button-primary" type="button">수집 시작</button><button id="open-browser" class="button button-light" type="button">Chrome 열기</button><button id="stop" class="button button-light" type="button" disabled>중지</button></div>
+          <details class="advanced"><summary>세부 설정 <span aria-hidden="true">⌄</span></summary><div class="advanced-fields">
+            <label for="menu-selector">메뉴 영역 선택자</label><input id="menu-selector" type="text" placeholder="자동 탐색" spellcheck="false">
+            <div class="setting-grid">
+              <div><label for="min-delay">메뉴 간격 (ms)</label><input id="min-delay" type="number" min="1000" step="100" value="1000"></div>
+              <div><label for="idle-time">요청 종료 후 대기 (ms)</label><input id="idle-time" type="number" min="1000" step="100" value="3000"></div>
+              <div><label for="max-wait">최대 대기 (ms)</label><input id="max-wait" type="number" min="2000" step="1000" value="45000"></div>
+              <div><label for="max-menus">최대 메뉴</label><input id="max-menus" type="number" min="1" max="1000" value="1000"></div>
+            </div>
+          </div></details>
+        </section>
+        <section class="card status-card" aria-label="수집 상태">
+          <div class="status-heading"><span class="eyebrow">PROGRESS</span><strong id="status-message">준비되었습니다</strong></div>
+          <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+          <div class="progress-number"><span>메뉴 방문</span><strong id="progress-count">0 / 0</strong></div>
+          <div class="metrics"><div><span>발견</span><strong id="discovered-count">0</strong></div><div><span>저장 파일</span><strong id="saved-count">0</strong></div></div>
+          <div class="status-row"><span>현재 메뉴</span><strong id="current-url">—</strong></div>
+          <div class="status-row"><span>결과 위치</span><strong id="result-path">—</strong></div>
+          <div class="result-actions"><button id="graph-btn" class="button button-dark" type="button" disabled>구조 보기</button><button id="open-result" class="button button-light" type="button" disabled>폴더 열기</button></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="graph-overlay" class="graph-overlay" hidden>
+    <section class="graph-window" role="dialog" aria-modal="true" aria-labelledby="graph-title">
+      <header class="graph-header"><div><span class="eyebrow">DISCOVERED STRUCTURE</span><h2 id="graph-title">확인된 구조</h2><p id="graph-summary"></p></div><button id="graph-close" class="icon-button" type="button" aria-label="구조 창 닫기">×</button></header>
+      <div class="graph-toolbar"><input id="graph-search" type="search" placeholder="메뉴 이름 또는 URL 검색" aria-label="메뉴 검색"><button id="graph-fit" class="button button-light" type="button">전체</button><button id="graph-minus" class="icon-button" type="button" aria-label="축소">−</button><span id="graph-zoom">100%</span><button id="graph-plus" class="icon-button" type="button" aria-label="확대">+</button></div>
+      <div class="graph-body"><div id="graph-canvas" class="graph-canvas"><svg id="graph-svg" role="img" aria-label="발견한 메뉴 연결 그래프"></svg></div><aside class="graph-details"><div id="graph-detail-empty" class="graph-empty">메뉴를 선택하면 저장된 리소스를 볼 수 있습니다.</div><div id="graph-detail" hidden><h3 id="detail-title"></h3><p id="detail-url"></p><div class="detail-meta"><span id="detail-state"></span><span id="detail-count"></span></div><div id="detail-resources" class="detail-resources"></div></div></aside></div>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">V.W.R.D — 별이 떠 있는 웹사이트</title>
+  <rect x="8" y="8" width="240" height="240" rx="54" fill="#17383f"/>
+  <rect x="38" y="105" width="180" height="98" rx="20" fill="#0b252d" opacity=".34"/>
+  <rect x="38" y="100" width="180" height="98" rx="20" fill="#f8fcf9"/>
+  <path d="M58 100h140a20 20 0 0 1 20 20v14H38v-14a20 20 0 0 1 20-20Z" fill="#d8eee2"/>
+  <circle cx="61" cy="117" r="4" fill="#5d9d89"/>
+  <circle cx="75" cy="117" r="4" fill="#7eb5a1"/>
+  <circle cx="89" cy="117" r="4" fill="#9acbb5"/>
+  <rect x="57" y="150" width="58" height="31" rx="8" fill="#a8dcc0"/>
+  <path d="M131 155h61M131 169h44" fill="none" stroke="#6eaaa0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M176 23c4 21 10 30 32 37-22 8-28 17-32 38-4-21-11-30-32-38 21-7 28-16 32-37Z" fill="#ffd676" stroke="#17383f" stroke-width="7" stroke-linejoin="round" transform="translate(0 -7)"/>
+  <path d="M218 39l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#a9e3c1"/>
+</svg>
