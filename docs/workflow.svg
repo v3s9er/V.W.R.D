@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1380" role="img" aria-labelledby="title desc">
+  <title id="title">V.W.R.D 동작 흐름</title>
+  <desc id="desc">대상 설정, 전용 Chrome, 메뉴 탐색, 중복 제거, 메뉴 방문, 로딩 대기, 리소스 저장을 반복한 뒤 계층별 결과와 구조 그래프를 만듭니다.</desc>
+  <defs>
+    <linearGradient id="background" x2="0" y2="1">
+      <stop offset="0" stop-color="#101B31"/>
+      <stop offset="1" stop-color="#0A1324"/>
+    </linearGradient>
+    <linearGradient id="card" x2="1" y2="1">
+      <stop offset="0" stop-color="#1A2B46"/>
+      <stop offset="1" stop-color="#122139"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#020714" flood-opacity=".32"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7D93B6"/>
+    </marker>
+    <style>
+      .heading{font:700 34px 'Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;fill:#F7FAFF}
+      .subtitle{font:400 16px 'Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;fill:#9CB0CC}
+      .step{font:700 20px 'Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;fill:#F7FAFF}
+      .detail{font:400 15px 'Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;fill:#AFC0DA}
+      .number{font:700 17px 'Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;fill:#081321;text-anchor:middle;dominant-baseline:central}
+      .path{fill:none;stroke:#7D93B6;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+      .small{font:600 14px 'Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;fill:#B9CAE1}
+    </style>
+  </defs>
+
+  <rect width="820" height="1380" rx="28" fill="url(#background)"/>
+  <circle cx="730" cy="70" r="70" fill="#2B4873" opacity=".16"/>
+  <circle cx="730" cy="70" r="31" fill="#71B6FF" opacity=".14"/>
+  <path d="M730 41l5.9 21.1L757 68l-21.1 5.9L730 95l-5.9-21.1L703 68l21.1-5.9z" fill="#BBDFFF"/>
+  <text x="90" y="73" class="heading">V.W.R.D</text>
+  <text x="90" y="104" class="subtitle">사이트의 메뉴를 순회하고, 로드된 리소스를 구조대로 저장합니다.</text>
+
+  <g class="path">
+    <path d="M410 244v28"/><path d="M410 358v28"/><path d="M410 472v28"/>
+    <path d="M410 586v28"/><path d="M410 700v28"/><path d="M410 814v28"/>
+    <path d="M410 928v25"/><path d="M410 1084v32"/><path d="M410 1200v30"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="158" width="640" height="86" rx="19" fill="url(#card)" stroke="#385780"/>
+    <rect x="90" y="158" width="6" height="86" rx="3" fill="#69AEFF"/>
+    <circle cx="137" cy="201" r="22" fill="#69AEFF"/><text x="137" y="202" class="number">1</text>
+    <text x="181" y="194" class="step">대상 설정</text><text x="181" y="220" class="detail">사이트 주소 · 저장 폴더 · 메뉴 선택자</text>
+
+    <rect x="90" y="272" width="640" height="86" rx="19" fill="url(#card)" stroke="#48528C"/>
+    <rect x="90" y="272" width="6" height="86" rx="3" fill="#A49AFF"/>
+    <circle cx="137" cy="315" r="22" fill="#A49AFF"/><text x="137" y="316" class="number">2</text>
+    <text x="181" y="308" class="step">전용 Chrome 열기</text><text x="181" y="334" class="detail">로그인이 필요하면 사용자가 직접 로그인</text>
+
+    <rect x="90" y="386" width="640" height="86" rx="19" fill="url(#card)" stroke="#48528C"/>
+    <rect x="90" y="386" width="6" height="86" rx="3" fill="#A49AFF"/>
+    <circle cx="137" cy="429" r="22" fill="#A49AFF"/><text x="137" y="430" class="number">3</text>
+    <text x="181" y="422" class="step">메뉴 탐색</text><text x="181" y="448" class="detail">링크와 지원되는 클릭 메뉴로 계층 파악</text>
+
+    <rect x="90" y="500" width="640" height="86" rx="19" fill="url(#card)" stroke="#337878"/>
+    <rect x="90" y="500" width="6" height="86" rx="3" fill="#45D6C0"/>
+    <circle cx="137" cy="543" r="22" fill="#45D6C0"/><text x="137" y="544" class="number">4</text>
+    <text x="181" y="536" class="step">방문 목록 정리</text><text x="181" y="562" class="detail">같은 사이트만 남기고 중복 URL 제거</text>
+
+    <rect x="90" y="614" width="640" height="86" rx="19" fill="url(#card)" stroke="#84683B"/>
+    <rect x="90" y="614" width="6" height="86" rx="3" fill="#F7C46A"/>
+    <circle cx="137" cy="657" r="22" fill="#F7C46A"/><text x="137" y="658" class="number">5</text>
+    <text x="181" y="650" class="step">메뉴 한 번 방문</text><text x="181" y="676" class="detail">방문 사이 최소 1초</text>
+
+    <rect x="90" y="728" width="640" height="86" rx="19" fill="url(#card)" stroke="#84683B"/>
+    <rect x="90" y="728" width="6" height="86" rx="3" fill="#F7C46A"/>
+    <circle cx="137" cy="771" r="22" fill="#F7C46A"/><text x="137" y="772" class="number">6</text>
+    <text x="181" y="764" class="step">리소스 로딩 대기</text><text x="181" y="790" class="detail">3초간 새 요청이 없을 때까지 · 최대 45초</text>
+
+    <rect x="90" y="842" width="640" height="86" rx="19" fill="url(#card)" stroke="#347B68"/>
+    <rect x="90" y="842" width="6" height="86" rx="3" fill="#50DCA9"/>
+    <circle cx="137" cy="885" r="22" fill="#50DCA9"/><text x="137" y="886" class="number">7</text>
+    <text x="181" y="878" class="step">응답과 HTML 저장</text><text x="181" y="904" class="detail">브라우저가 실제로 로드한 리소스 수집</text>
+  </g>
+
+  <path d="M410 953l124 67-124 64-124-64z" fill="#213451" stroke="#7696C1" stroke-width="2"/>
+  <text x="410" y="1014" text-anchor="middle" class="step">다음 메뉴?</text>
+  <text x="410" y="1038" text-anchor="middle" class="detail">남은 메뉴 확인</text>
+  <path d="M534 1020h226V657h-28" class="path" stroke="#F7C46A" stroke-dasharray="8 7"/>
+  <rect x="635" y="974" width="98" height="30" rx="15" fill="#3F392D" stroke="#F7C46A"/>
+  <text x="684" y="994" text-anchor="middle" class="small" fill="#F7D596">메뉴 남음</text>
+  <text x="428" y="1106" class="small">없음</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="1116" width="640" height="84" rx="19" fill="url(#card)" stroke="#385780"/>
+    <rect x="90" y="1116" width="6" height="84" rx="3" fill="#69AEFF"/>
+    <circle cx="137" cy="1158" r="22" fill="#69AEFF"/><text x="137" y="1159" class="number">8</text>
+    <text x="181" y="1151" class="step">계층별 결과 작성</text><text x="181" y="1177" class="detail">메뉴 경로 · 수집 보고서 · ZIP 생성</text>
+
+    <rect x="90" y="1230" width="640" height="84" rx="19" fill="url(#card)" stroke="#75518A"/>
+    <rect x="90" y="1230" width="6" height="84" rx="3" fill="#DB9BFF"/>
+    <circle cx="137" cy="1272" r="22" fill="#DB9BFF"/><text x="137" y="1273" class="number">9</text>
+    <text x="181" y="1265" class="step">구조 그래프 확인</text><text x="181" y="1291" class="detail">발견된 화면과 저장 파일을 시각적으로 탐색</text>
+  </g>
+  <text x="410" y="1353" class="subtitle" text-anchor="middle">메뉴 방문은 한 번씩 · 페이지 내부 HTTP 요청은 여러 개일 수 있습니다</text>
+</svg>

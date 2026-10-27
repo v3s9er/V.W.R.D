@@ -9,7 +9,8 @@ $required = @(
     'LICENSE',
     'branding\VWRD-logo.svg',
     'branding\VWRD-logo.png',
-    'branding\VWRD.ico'
+    'branding\VWRD.ico',
+    'docs\workflow.svg'
 )
 foreach ($relative in $required) {
     $path = Join-Path $project $relative

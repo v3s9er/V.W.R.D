@@ -6,34 +6,7 @@ Windows용 사이트 리소스 수집 앱입니다. 사용자가 사이트 주�
 
 ## 동작 흐름
 
-```mermaid
-flowchart TB
-    A["🌐 대상 주소와 저장 폴더 입력<br/>앱 화면 또는 MCP로 시작"]
-    B["🖥️ 전용 Chrome 열기<br/>필요하면 로그인"]
-    C["🧭 메뉴 탐색<br/>링크와 지원되는 클릭 메뉴 확인"]
-    D["🧹 같은 사이트의 URL만 남기고<br/>중복 방문 제거"]
-    E["⏱️ 다음 메뉴 선택<br/>방문 간격 최소 1초"]
-    F["📄 메뉴 방문 1회"]
-    G["⏳ 리소스 로딩 대기<br/>3초간 새 요청이 없을 때까지 · 최대 45초"]
-    H["💾 실제 로드된 응답과<br/>최종 HTML 저장"]
-    I{"방문할 메뉴가<br/>남았나요?"}
-    J["🗂️ 사이트 메뉴 계층대로 정리<br/>보고서와 ZIP 생성"]
-    K["✨ 구조 그래프에서 결과 확인"]
-
-    A --> B --> C --> D --> E --> F --> G --> H --> I
-    I -- 예 --> E
-    I -- 아니요 --> J --> K
-
-    classDef input fill:#EAF2FF,stroke:#5886D6,color:#183763,stroke-width:2px
-    classDef browse fill:#F0EBFF,stroke:#9271D1,color:#402A71,stroke-width:2px
-    classDef capture fill:#FFF3DF,stroke:#D99A36,color:#64420D,stroke-width:2px
-    classDef result fill:#E6F7EF,stroke:#39A773,color:#15573B,stroke-width:2px
-
-    class A,B input
-    class C,D,E,F,G,I browse
-    class H capture
-    class J,K result
-```
+![V.W.R.D의 사이트 탐색과 리소스 수집 흐름](docs/workflow.svg)
 
 메뉴 URL은 한 번씩 방문합니다. 한 페이지에서 이미지·스크립트 등을 로드할 때는 여러 HTTP 요청이 발생할 수 있습니다.
 
