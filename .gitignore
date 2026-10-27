@@ -1,0 +1,14 @@
+# Build and distribution artifacts
+*.exe
+*.zip
+/VWRD-release/
+/release/
+/dist/
+
+# Local capture output and editor files
+/capture-*/
+/captures/
+/output/
+*.log
+.idea/
+.vscode/
