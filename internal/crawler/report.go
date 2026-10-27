@@ -51,5 +51,6 @@ func LoadReport(directory string) (*Report, error) {
 	if report.RootURL == "" || report.Pages == nil {
 		return nil, errors.New("V.W.R.D 수집 보고서가 아닙니다")
 	}
+	report.OutputDir = filepath.Dir(selected)
 	return &report, nil
 }

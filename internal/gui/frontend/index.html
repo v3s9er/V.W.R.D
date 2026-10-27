@@ -40,6 +40,7 @@
           <div class="status-row"><span>현재 메뉴</span><strong id="current-url">—</strong></div>
           <div class="status-row"><span>결과 위치</span><strong id="result-path">—</strong></div>
           <div class="result-actions"><button id="graph-btn" class="button button-dark" type="button" disabled>구조 보기</button><button id="open-result" class="button button-light" type="button" disabled>폴더 열기</button></div>
+          <button id="load-report" class="button button-light load-report" type="button" disabled>분석 폴더 불러오기</button>
         </section>
       </div>
     </main>
@@ -48,8 +49,8 @@
   <div id="graph-overlay" class="graph-overlay" hidden>
     <section class="graph-window" role="dialog" aria-modal="true" aria-labelledby="graph-title">
       <header class="graph-header"><div><span class="eyebrow">DISCOVERED STRUCTURE</span><h2 id="graph-title">확인된 구조</h2><p id="graph-summary"></p></div><button id="graph-close" class="icon-button" type="button" aria-label="구조 창 닫기">×</button></header>
-      <div class="graph-toolbar"><input id="graph-search" type="search" placeholder="메뉴 이름 또는 URL 검색" aria-label="메뉴 검색"><button id="graph-fit" class="button button-light" type="button">전체</button><button id="graph-minus" class="icon-button" type="button" aria-label="축소">−</button><span id="graph-zoom">100%</span><button id="graph-plus" class="icon-button" type="button" aria-label="확대">+</button></div>
-      <div class="graph-body"><div id="graph-canvas" class="graph-canvas"><svg id="graph-svg" role="img" aria-label="발견한 메뉴 연결 그래프"></svg></div><aside class="graph-details"><div id="graph-detail-empty" class="graph-empty">메뉴를 선택하면 저장된 리소스를 볼 수 있습니다.</div><div id="graph-detail" hidden><h3 id="detail-title"></h3><p id="detail-url"></p><div class="detail-meta"><span id="detail-state"></span><span id="detail-count"></span></div><div id="detail-resources" class="detail-resources"></div></div></aside></div>
+      <div class="graph-toolbar"><input id="graph-search" type="search" placeholder="메뉴 이름 또는 URL 검색" aria-label="메뉴 검색"><span class="graph-gesture-hint">휠로 확대·축소 · 드래그로 이동</span><div class="graph-zoom-controls" role="group" aria-label="그래프 배율"><button id="graph-minus" class="icon-button" type="button" aria-label="그래프 축소" title="축소">−</button><output id="graph-zoom" aria-live="polite">100%</output><button id="graph-plus" class="icon-button" type="button" aria-label="그래프 확대" title="확대">+</button></div><button id="graph-fit" class="button button-light" type="button" title="전체 구조를 화면에 맞춤">전체 보기</button></div>
+      <div class="graph-body"><div id="graph-canvas" class="graph-canvas" tabindex="0" aria-label="구조 그래프. 마우스 휠로 확대 또는 축소하고 빈 공간을 드래그해 이동할 수 있습니다."><div id="graph-stage" class="graph-stage"><svg id="graph-svg" role="img" aria-label="발견한 메뉴 연결 그래프"></svg></div></div><aside class="graph-details"><div id="graph-detail-empty" class="graph-empty">메뉴를 선택하면 저장된 리소스를 볼 수 있습니다.</div><div id="graph-detail" hidden><h3 id="detail-title"></h3><p id="detail-url"></p><div class="detail-meta"><span id="detail-state"></span><span id="detail-count"></span></div><div id="detail-resources" class="detail-resources"></div></div></aside></div>
     </section>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>

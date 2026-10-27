@@ -72,7 +72,7 @@ func (s *Server) Run(ctx context.Context) error {
 }
 
 func (s *Server) newProtocolServer() *mcp.Server {
-	server := mcp.NewServer(&mcp.Implementation{Name: "vwrd", Version: "1.0.2"}, nil)
+	server := mcp.NewServer(&mcp.Implementation{Name: "vwrd", Version: "1.0.3"}, nil)
 	mcp.AddTool(server, &mcp.Tool{Name: "open_browser", Description: "Open a dedicated Chrome profile at a user-selected site so the user can log in before capture."},
 		func(_ context.Context, _ *mcp.CallToolRequest, input OpenBrowserInput) (*mcp.CallToolResult, OpenBrowserOutput, error) {
 			if err := s.Manager.OpenBrowser(input.URL); err != nil {

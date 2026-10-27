@@ -82,6 +82,7 @@ input:focus { border-color: #48aa91; box-shadow: 0 0 0 3px rgba(72, 170, 145, .1
 .status-row strong { display: block; font-size: 11px; font-weight: 600; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .result-actions { display: flex; gap: 9px; margin-top: 18px; }
 .result-actions .button { flex: 1; }
+.load-report { width: 100%; margin-top: 9px; }
 .status-card .button-light { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .14); color: #e5f4ef; }
 .status-card .button-light:hover:not(:disabled) { background: rgba(255, 255, 255, .17); }
 .status-card .button-dark { background: #c4efd5; color: #194a40; }
@@ -98,10 +99,17 @@ input:focus { border-color: #48aa91; box-shadow: 0 0 0 3px rgba(72, 170, 145, .1
 .graph-toolbar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid #e8eeee; }
 .graph-toolbar input { max-width: 280px; height: 36px; margin-right: auto; font-size: 11px; }
 .graph-toolbar .button { min-height: 34px; }
-#graph-zoom { font-size: 11px; color: #668087; width: 43px; text-align: center; }
+.graph-gesture-hint { color: #81979a; font-size: 11px; white-space: nowrap; }
+.graph-zoom-controls { display: flex; align-items: center; gap: 2px; padding: 2px; border: 1px solid #dfe9e6; border-radius: 10px; background: #f5f9f7; }
+.graph-zoom-controls .icon-button { border: 0; background: transparent; width: 34px; height: 32px; font-size: 19px; }
+.graph-zoom-controls .icon-button:hover:not(:disabled) { background: white; }
+#graph-zoom { min-width: 52px; font-size: 11px; font-weight: 800; font-variant-numeric: tabular-nums; color: #3b6864; text-align: center; }
 .graph-body { min-height: 0; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 300px; }
-.graph-canvas { overflow: auto; background-color: #f6f9f8; background-image: radial-gradient(#d9e6e1 1px, transparent 1px); background-size: 19px 19px; }
-.graph-canvas svg { display: block; min-width: 100%; min-height: 100%; }
+.graph-canvas { overflow: auto; cursor: grab; overscroll-behavior: contain; background-color: #f6f9f8; background-image: radial-gradient(#d9e6e1 1px, transparent 1px); background-size: 19px 19px; }
+.graph-canvas.is-panning { cursor: grabbing; user-select: none; }
+.graph-canvas:focus-visible { outline: 2px solid #48aa91; outline-offset: -2px; }
+.graph-stage { display: flex; justify-content: center; align-items: center; width: max-content; height: max-content; min-width: 100%; min-height: 100%; }
+.graph-canvas svg { display: block; flex: none; max-width: none; }
 .graph-edge { fill: none; stroke: #a5cbc0; stroke-width: 2; }
 .graph-node { cursor: pointer; }
 .graph-node rect { fill: white; stroke: #cdded9; stroke-width: 1.5; filter: drop-shadow(0 3px 6px rgba(26, 61, 61, .06)); }
@@ -128,4 +136,4 @@ input:focus { border-color: #48aa91; box-shadow: 0 0 0 3px rgba(72, 170, 145, .1
 .toast { position: fixed; z-index: 30; right: 23px; bottom: 22px; max-width: 390px; padding: 12px 16px; border-radius: 10px; background: #25484c; color: white; box-shadow: 0 10px 25px rgba(16, 48, 51, .2); opacity: 0; transform: translateY(10px); pointer-events: none; transition: .2s; font-size: 12px; }
 .toast.show { opacity: 1; transform: translateY(0); }
 .toast.error { background: #a44e45; }
-@media (max-width: 900px) { .workspace { padding: 25px 20px; } .workspace-grid { gap: 12px; grid-template-columns: minmax(0, 1fr) 300px; } .form-card, .status-card { padding: 20px; } .graph-body { grid-template-columns: minmax(0, 1fr) 250px; } }
+@media (max-width: 900px) { .workspace { padding: 25px 20px; } .workspace-grid { gap: 12px; grid-template-columns: minmax(0, 1fr) 300px; } .form-card, .status-card { padding: 20px; } .graph-body { grid-template-columns: minmax(0, 1fr) 250px; } .graph-gesture-hint { display: none; } }

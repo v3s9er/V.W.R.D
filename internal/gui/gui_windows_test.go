@@ -35,4 +35,12 @@ func TestOpenReportFindsLatestCapture(t *testing.T) {
 	if report.RootURL != "https://new.example/" {
 		t.Fatalf("opened %s", report.RootURL)
 	}
+	oldFolder := filepath.Join(root, "capture-20260101-100000")
+	report, err = bridge.OpenReport(oldFolder)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if report.RootURL != "https://old.example/" || report.OutputDir != oldFolder {
+		t.Fatalf("selected capture: root=%s folder=%s", report.RootURL, report.OutputDir)
+	}
 }

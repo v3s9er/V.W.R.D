@@ -4,7 +4,7 @@ Unicode true
 !include "LogicLib.nsh"
 
 !define APP_NAME "V.W.R.D"
-!define APP_VERSION "1.0.2"
+!define APP_VERSION "1.0.3"
 !define PROJECT_DIR ".."
 !define APP_KEY "Software\VWRD"
 !define UNINSTALL_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\V.W.R.D"
@@ -24,10 +24,10 @@ SetCompressor /SOLID lzma
 CRCCheck on
 Icon "${PROJECT_DIR}\branding\VWRD.ico"
 UninstallIcon "${PROJECT_DIR}\branding\VWRD.ico"
-VIProductVersion "1.0.2.0"
+VIProductVersion "1.0.3.0"
 VIAddVersionKey "ProductName" "V.W.R.D"
 VIAddVersionKey "FileDescription" "V.W.R.D 설치 프로그램"
-VIAddVersionKey "FileVersion" "1.0.2.0"
+VIAddVersionKey "FileVersion" "1.0.3.0"
 VIAddVersionKey "ProductVersion" "${APP_VERSION}"
 VIAddVersionKey "LegalCopyright" "Copyright 2026 V.W.R.D"
 

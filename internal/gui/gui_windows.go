@@ -45,6 +45,15 @@ func (b *Bridge) ChooseDirectory(current string) (string, error) {
 	})
 }
 
+func (b *Bridge) ChooseReportDirectory(current string) (string, error) {
+	if info, err := os.Stat(current); err != nil || !info.IsDir() {
+		current = ""
+	}
+	return runtime.OpenDirectoryDialog(b.ctx, runtime.OpenDialogOptions{
+		Title: "분석 폴더 선택", DefaultDirectory: current,
+	})
+}
+
 func (b *Bridge) OpenBrowser(address string) error            { return b.manager.OpenBrowser(address) }
 func (b *Bridge) Start(config crawler.Config) (string, error) { return b.manager.Start(config) }
 func (b *Bridge) Stop() bool                                  { return b.manager.Stop() }
@@ -52,6 +61,9 @@ func (b *Bridge) Status() crawler.Status                      { return b.manager
 func (b *Bridge) Report() *crawler.Report                     { return b.manager.Report() }
 
 func (b *Bridge) OpenReport(directory string) (*crawler.Report, error) {
+	if directory != "" {
+		return crawler.LoadReport(directory)
+	}
 	if report := b.manager.Report(); report != nil {
 		return report, nil
 	}
@@ -59,9 +71,9 @@ func (b *Bridge) OpenReport(directory string) (*crawler.Report, error) {
 }
 
 func (b *Bridge) OpenResult(requested string) error {
-	directory := b.manager.Status().ResultDir
+	directory := requested
 	if directory == "" {
-		directory = requested
+		directory = b.manager.Status().ResultDir
 	}
 	info, err := os.Stat(directory)
 	if err != nil {
